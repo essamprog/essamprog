@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AstroNile - Futuristic Space Theme</title>
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet" />
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+    <!-- Tailwind Build -->
+    <link rel="stylesheet" href="../dist/output.css"/>
+
+</head>
+
+<body class="text-white overflow-x-hidden">
+
+    <!-- Background Layers -->
+    <canvas id="stars-bg" class="background-canvas"></canvas>
+    <canvas id="plexus-bg" class="background-canvas"></canvas>
+
+    <!-- Main Wrapper -->
+    <div class="content-wrapper">
+        <main>
+            <!-- Header -->
+            <header class="fixed top-0 left-0 w-full bg-gray-900/80 backdrop-blur-md text-white shadow z-50">
+                <div class="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="flex items-center justify-between h-16">
+                        <!-- Logo -->
+                        <div class="flex items-center">
+
+                            <a href="index.html">
+                                <img src="images/Logo.png" alt="Logo" class="h-16 w-16 object-contain" />
+                            </a>
+
+                            <a href="index.html">
+                                <span
+                                    class="text-2xl font-bold tracking-wider bg-clip-text text-transparent bg-gradient-to-r from-sky-400 to-blue-600">
+                                    AstroNile
+                                </span>
+                            </a>
+
+                        </div>
+
+                        <!-- Links -->
+                        <nav class="hidden md:flex items-center space-x-6">
+                            <a href="#Home" class="hover:text-blue-400 transition">Home</a>
+                            <a href="#About" class="hover:text-blue-400 transition">About</a>
+                            <a href="#Knowledge" class="hover:text-blue-400 transition">knowledge graph</a>
+                            <a href="#Services" class="hover:text-blue-400 transition">Services</a>
+                            <a href="#Contact" class="hover:text-blue-400 transition">Contact</a>
+
+                        </nav>
+                        <div class="hidden md:block">
+                            <a href="#">
+                                <img src="images/User.png" class="h-8 w-8 rounded-full ring-2 ring-sky-500/60"
+                                    alt="Profile" />
+                            </a>
+                        </div>
+
+
+                        <!-- Mobile button -->
+                        <div class="md:hidden ">
+                            <button id="menu-btn" class="p-2 rounded hover:bg-gray-800 focus:outline-none">
+                                <i class="bx bx-menu text-2xl cursor-pointer"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mobile dropdown -->
+                <div id="mobile-menu" class="hidden md:hidden p-4 flex flex-col gap-4 items-center w-64 mx-auto mt-4">
+
+                    <a href="#Home"
+                        class="flex items-center gap-3 w-full px-4 py-2 rounded-full bg-purple-200 text-black font-medium">
+                        <i class="bx bx-home"></i>
+                        Home
+                    </a>
+
+                    <a href="#Knowledge"
+                        class="flex items-center gap-3 w-full px-4 py-2 rounded-full hover:bg-purple-200 hover:text-black transition">
+                        <i class="bx bx-heart"></i>
+                        knowledge graph
+                    </a>
+
+                    <a href="#Services"
+                        class="flex items-center gap-3 w-full px-4 py-2 rounded-full hover:bg-purple-200 hover:text-black transition">
+                        <i class="bx bx-user"></i>
+                        Services
+                    </a>
+
+                    <a href="#Contact"
+                        class="flex items-center gap-3 w-full px-4 py-2 rounded-full hover:bg-purple-200 hover:text-black transition">
+                        <i class="bx bx-search"></i>
+                        Contact
+                    </a>
+                </div>
+
+
+            </header>
+
+            <!-- Hero / Search -->
+            <section id="Home" class="flex flex-col items-center justify-top text-center pb-20 pt-25 h-180 px-8">
+                <h1 class="text-4xl sm:text-5xl font-extrabold mb-6">
+                    Explore the <span
+                        class="bg-clip-text text-transparent bg-gradient-to-r from-sky-400 to-blue-600">Cosmos</span>
+                    with AstroNile
+                </h1>
+                <p class="max-w-xl text-gray-300 mb-8">
+                    A new way to learn space biology: Search, visualize, and explore how life adapts beyond Earth.
+                </p>
+                <div class="container w-full max-w-md md:max-w-md">
+                    <div class="box relative">
+                        <input type="text" id="searchbox" placeholder="Search Community"
+                            class="w-full bg-slate-800/60 backdrop-blur-sm border border-slate-600/30 rounded-full px-4 py-3 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                        <i class="bx bx-search absolute right-3 top-3 text-xl text-slate-400"></i>
+                        <ul id="list" class="hidden"></ul>
+                    </div>
+                </div>
+
+
+            </section>
+
+            <!-- About Section -->
+            <section id="About" class="relative py-20 bg-gradient-to-b from-gray-900/80 to-black">
+                <div class="max-w-7xl mx-auto px-6 lg:px-12 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+
+                    <!-- Text Content -->
+                    <div class="space-y-6">
+                        <h2 class="text-3xl sm:text-4xl font-bold">
+                            About <span
+                                class="bg-clip-text text-transparent bg-gradient-to-r from-sky-400 to-blue-600">AstroNile</span>
+                        </h2>
+                        <p class="text-gray-300 leading-relaxed">
+                            At AstroNile, we merge futuristic design with cosmic inspiration.
+                            Our mission is to create digital experiences that feel out of this world,
+                            combining sleek design, interstellar visuals, and cutting-edge technology.
+                        </p>
+                        <ul class="space-y-3 text-gray-300">
+                            <li class="flex items-center gap-3">
+                                <i class="bx bx-planet text-sky-400 text-xl"></i>
+                                Innovative, space-inspired designs
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i class="bx bx-rocket text-sky-400 text-xl"></i>
+                                Fast and futuristic web solutions
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i class="bx bx-star text-sky-400 text-xl"></i>
+                                Cosmic-level user experience
+                            </li>
+                        </ul>
+                        <a href="#Services"
+                            class="inline-block mt-6 px-6 py-3 bg-gradient-to-r from-sky-500 to-blue-600 rounded-lg font-semibold text-white shadow-lg hover:opacity-90 transition">
+                            Explore Services
+                        </a>
+                    </div>
+
+                    <!-- Image / Visual -->
+                    <div class="relative">
+                        <div class="">
+                            <img src="images/about.png" alt="About AstroNile"
+                                class="max-h-100 md:max-h-120 object-contain animate-pulse" />
+                        </div>
+                        <!-- Glow effect -->
+                        <div
+                            class="absolute -inset-4 bg-gradient-to-r from-sky-500/30 to-blue-600/30 blur-3xl opacity-40 rounded-2xl -z-10">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ---------- -->
+
+            <!-- Animated Shapes Section -->
+            <section id="Knowledge" class="py-10 bg-gradient-to-b from-gray-900/80 to-black overflow-hidden">
+                <div class="max-w-6xl mx-auto px-6">
+                    <div class="text-center mb-16">
+                        <h2
+                            class="text-4xl font-bold bg-gradient-to-r from-sky-400 to-blue-800 bg-clip-text text-transparent mb-4">
+                            knowledge <span
+                                class="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Graph</span>
+                        </h2>
+                        <p class="text-gray-600 text-lg">Interactive organic shapes with beautiful animations</p>
+                    </div>
+
+                    <div class="grid grid-cols-2 md:grid-cols-3 gap-8 lg:gap-12">
+                        <!-- Shape 1 - Lightning -->
+                        <div class="flex justify-center items-center">
+                            <a href="#">
+                                <div class="shape-container group cursor-pointer" data-shape="1">
+                                    <svg width="180" height="180" viewBox="-100 -100 200 200"
+                                        xmlns="http://www.w3.org/2000/svg" class="animated-svg">
+                                        <path class="morphing-shape" fill="url(#gradient1)"
+                                            d="M31.3,-33.6C43.8,-18.8,59.4,-9.4,60.5,1.1C61.6,11.6,48.2,23.2,35.7,33.8C23.2,44.3,11.6,53.8,-5.4,59.3C-22.5,64.7,-45,66.1,-56,55.6C-67,45,-66.4,22.5,-65.5,0.9C-64.6,-20.6,-63.2,-41.3,-52.3,-56.1C-41.3,-70.8,-20.6,-79.8,-5.6,-74.2C9.4,-68.6,18.8,-48.4,31.3,-33.6Z" />
+                                        <defs>
+                                            <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="100%">
+                                                <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:0.8" />
+                                                <stop offset="100%" style="stop-color:#1d4ed8;stop-opacity:1" />
+                                            </linearGradient>
+                                        </defs>
+                                    </svg>
+                                    <div class="shape-icon">
+                                        anes</i>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <!-- Shape 2 - Station -->
+                        <div class="flex justify-center items-center">
+                            <a href="#">
+                                <div class="shape-container group cursor-pointer" data-shape="2">
+                                    <svg width="180" height="180" viewBox="0 0 600 600"
+                                        xmlns="http://www.w3.org/2000/svg" class="animated-svg">
+                                        <path class="morphing-shape" stroke="none" stroke-width="0"
+                                            fill="url(#gradient2)"
+                                            d="M300,582.0697525312426C382.5290701553225,586.8405444964366,449.9789794690241,525.3245884688669,502.5850820975895,461.55621195738473C556.606425686781,396.0723002908107,615.8543463187945,314.28637112970534,586.6730223649479,234.56875336149918C558.9533121215079,158.8439757836574,454.9685369536778,164.00468322053177,381.49747125262974,130.76875717737553C312.15926192815925,99.40240125094834,248.97055460311594,18.661163978235184,179.8680185752513,50.54337015887873C110.5421016452524,82.52863877960104,119.82277516462835,180.83849132639028,109.12597500060166,256.43424936330496C100.08760227029461,320.3096726198365,92.17705696193138,384.0621239912766,124.79988738764834,439.7174275375508C164.83382741302287,508.01625554203684,220.96474134820875,577.5009287672846,300,582.0697525312426">
+                                        </path>
+                                        <defs>
+                                            <linearGradient id="gradient2" x1="0%" y1="0%" x2="100%" y2="100%">
+                                                <stop offset="0%" style="stop-color:#f97316;stop-opacity:0.8" />
+                                                <stop offset="100%" style="stop-color:#ea580c;stop-opacity:1" />
+                                            </linearGradient>
+                                        </defs>
+                                    </svg>
+                                    <div class="shape-icon">
+                                        arteries</i>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <!-- Shape 3 - TV -->
+                        <div class="flex justify-center items-center">
+                            <a href="#">
+                                <div class="shape-container group cursor-pointer" data-shape="3">
+                                    <svg width="180" height="180" viewBox="0 0 600 600"
+                                        xmlns="http://www.w3.org/2000/svg" class="animated-svg">
+                                        <path class="morphing-shape" stroke="none" stroke-width="0"
+                                            fill="url(#gradient3)"
+                                            d="M300,582.0697525312426C382.5290701553225,586.8405444964366,449.9789794690241,525.3245884688669,502.5850820975895,461.55621195738473C556.606425686781,396.0723002908107,615.8543463187945,314.28637112970534,586.6730223649479,234.56875336149918C558.9533121215079,158.8439757836574,454.9685369536778,164.00468322053177,381.49747125262974,130.76875717737553C312.15926192815925,99.40240125094834,248.97055460311594,18.661163978235184,179.8680185752513,50.54337015887873C110.5421016452524,82.52863877960104,119.82277516462835,180.83849132639028,109.12597500060166,256.43424936330496C100.08760227029461,320.3096726198365,92.17705696193138,384.0621239912766,124.79988738764834,439.7174275375508C164.83382741302287,508.01625554203684,220.96474134820875,577.5009287672846,300,582.0697525312426">
+                                        </path>
+                                        <defs>
+                                            <linearGradient id="gradient3" x1="0%" y1="0%" x2="100%" y2="100%">
+                                                <stop offset="0%" style="stop-color:#10b981;stop-opacity:0.8" />
+                                                <stop offset="100%" style="stop-color:#059669;stop-opacity:1" />
+                                            </linearGradient>
+                                        </defs>
+                                    </svg>
+                                    <div class="shape-icon">
+                                        circula..</i>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <!-- Shape 4 - Objects -->
+                        <div class="flex justify-center items-center">
+                            <a href="#">
+                                <div class="shape-container group cursor-pointer" data-shape="4">
+                                    <svg width="180" height="180" viewBox="0 0 600 600"
+                                        xmlns="http://www.w3.org/2000/svg" class="animated-svg">
+                                        <path class="morphing-shape" stroke="none" stroke-width="0"
+                                            fill="url(#gradient4)"
+                                            d="M300,582.0697525312426C382.5290701553225,586.8405444964366,449.9789794690241,525.3245884688669,502.5850820975895,461.55621195738473C556.606425686781,396.0723002908107,615.8543463187945,314.28637112970534,586.6730223649479,234.56875336149918C558.9533121215079,158.8439757836574,454.9685369536778,164.00468322053177,381.49747125262974,130.76875717737553C312.15926192815925,99.40240125094834,248.97055460311594,18.661163978235184,179.8680185752513,50.54337015887873C110.5421016452524,82.52863877960104,119.82277516462835,180.83849132639028,109.12597500060166,256.43424936330496C100.08760227029461,320.3096726198365,92.17705696193138,384.0621239912766,124.79988738764834,439.7174275375508C164.83382741302287,508.01625554203684,220.96474134820875,577.5009287672846,300,582.0697525312426">
+                                        </path>
+                                        <defs>
+                                            <linearGradient id="gradient4" x1="0%" y1="0%" x2="100%" y2="100%">
+                                                <stop offset="0%" style="stop-color:#dc2626;stop-opacity:0.8" />
+                                                <stop offset="100%" style="stop-color:#b91c1c;stop-opacity:1" />
+                                            </linearGradient>
+                                        </defs>
+                                    </svg>
+                                    <div class="shape-icon">
+                                        heart</i>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <!-- Shape 5 - Calendar -->
+                        <div class="flex justify-center items-center">
+                            <a href="#">
+                                <div class="shape-container group cursor-pointer" data-shape="5">
+                                    <svg width="180" height="180" viewBox="0 0 600 600"
+                                        xmlns="http://www.w3.org/2000/svg" class="animated-svg">
+                                        <path class="morphing-shape" stroke="none" stroke-width="0"
+                                            fill="url(#gradient5)"
+                                            d="M300,582.0697525312426C382.5290701553225,586.8405444964366,449.9789794690241,525.3245884688669,502.5850820975895,461.55621195738473C556.606425686781,396.0723002908107,615.8543463187945,314.28637112970534,586.6730223649479,234.56875336149918C558.9533121215079,158.8439757836574,454.9685369536778,164.00468322053177,381.49747125262974,130.76875717737553C312.15926192815925,99.40240125094834,248.97055460311594,18.661163978235184,179.8680185752513,50.54337015887873C110.5421016452524,82.52863877960104,119.82277516462835,180.83849132639028,109.12597500060166,256.43424936330496C100.08760227029461,320.3096726198365,92.17705696193138,384.0621239912766,124.79988738764834,439.7174275375508C164.83382741302287,508.01625554203684,220.96474134820875,577.5009287672846,300,582.0697525312426">
+                                        </path>
+                                        <defs>
+                                            <linearGradient id="gradient5" x1="0%" y1="0%" x2="100%" y2="100%">
+                                                <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:0.8" />
+                                                <stop offset="100%" style="stop-color:#7c3aed;stop-opacity:1" />
+                                            </linearGradient>
+                                        </defs>
+                                    </svg>
+                                    <div class="shape-icon">
+                                        bones</i>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <!-- Shape 6 - ID Card -->
+                        <div class="flex justify-center items-center">
+                            <a href="#">
+                                <div class="shape-container group cursor-pointer" data-shape="6">
+                                    <svg width="180" height="180" viewBox="0 0 600 600"
+                                        xmlns="http://www.w3.org/2000/svg" class="animated-svg">
+                                        <path class="morphing-shape" stroke="none" stroke-width="0"
+                                            fill="url(#gradient6)"
+                                            d="M300,582.0697525312426C382.5290701553225,586.8405444964366,449.9789794690241,525.3245884688669,502.5850820975895,461.55621195738473C556.606425686781,396.0723002908107,615.8543463187945,314.28637112970534,586.6730223649479,234.56875336149918C558.9533121215079,158.8439757836574,454.9685369536778,164.00468322053177,381.49747125262974,130.76875717737553C312.15926192815925,99.40240125094834,248.97055460311594,18.661163978235184,179.8680185752513,50.54337015887873C110.5421016452524,82.52863877960104,119.82277516462835,180.83849132639028,109.12597500060166,256.43424936330496C100.08760227029461,320.3096726198365,92.17705696193138,384.0621239912766,124.79988738764834,439.7174275375508C164.83382741302287,508.01625554203684,220.96474134820875,577.5009287672846,300,582.0697525312426">
+                                        </path>
+                                        <defs>
+                                            <linearGradient id="gradient6" x1="0%" y1="0%" x2="100%" y2="100%">
+                                                <stop offset="0%" style="stop-color:#ec4899;stop-opacity:0.8" />
+                                                <stop offset="100%" style="stop-color:#db2777;stop-opacity:1" />
+                                            </linearGradient>
+                                        </defs>
+                                    </svg>
+                                    <div class="shape-icon text-xl md:text-2xl text-whit">
+                                        blood</i>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Font Awesome for Icons -->
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+            </section>
+
+
+            <!-- Our Services Section -->
+            <section id="Services" class="space-services-section pb-10 md:pb-28">
+                <div class="container">
+                    <div class="section-header">
+                        <h2
+                            class="text-4xl font-bold bg-gradient-to-r from-sky-400 to-purple-400 bg-clip-text text-transparent mb-4 mt-8">
+                            Our Services Is</h2>
+                        <p class="section-subtitle">Comprehensive tools and resources to accelerate space research and
+                            education</p>
+                    </div>
+
+                    <div class="services-grid">
+                        <!-- Research Summarization -->
+                        <div class="service-card" data-service="1">
+                            <div class="service-icon">
+                                <i class="fas fa-file-alt"></i>
+                            </div>
+                            <h3 class="service-title">Research Summarization</h3>
+                            <p class="service-description">AI-powered analysis and summarization of complex scientific
+                                research papers and studies</p>
+                        </div>
+
+                        <!-- Educational Videos -->
+                        <div class="service-card" data-service="2">
+                            <div class="service-icon">
+                                <i class="fas fa-play-circle"></i>
+                            </div>
+                            <h3 class="service-title">Educational Videos</h3>
+                            <p class="service-description">AI-generated educational content that explains complex space
+                                concepts in accessible formats</p>
+                        </div>
+
+                        <!-- Official Sources -->
+                        <div class="service-card" data-service="3">
+                            <div class="service-icon">
+                                <i class="fas fa-book"></i>
+                            </div>
+                            <h3 class="service-title">Official Sources</h3>
+                            <p class="service-description">Curated content from peer-reviewed research, academic books,
+                                and NASA-supported studies</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Footer -->
+            <!-- SpaceRes Footer -->
+            <footer id="Contact" class="spaceres-footer">
+                <div class="footer-container">
+
+                    <!-- Logo and Description Section -->
+                    <div class="footer-section logo-section">
+                        <div class="logo-container">
+                            <div class="logo-icon">
+                                <i class="fas fa-rocket"></i>
+                            </div>
+                            <h3 class="logo-text">SpaceRes</h3>
+                        </div>
+                        <p class="logo-description">
+                            Explore interconnected<br>
+                            research topics visualized
+                        </p>
+
+                        <div class="connect-section">
+                            <h4 class="connect-title">connect with us</h4>
+                            <div class="social-links">
+                                <a href="#" class="social-link" aria-label="Instagram">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="#" class="social-link" aria-label="Facebook">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#" class="social-link" aria-label="YouTube">
+                                    <i class="fab fa-youtube"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Links Section -->
+                    <div class="footer-section">
+                        <h4 class="section-title-footer">quick link</h4>
+                        <ul class="footer-links">
+                            <li><a href="#Home" class="footer-link">Home</a></li>
+                            <li><a href="#About" class="footer-link">About Us</a></li>
+                            <li><a href="#Services" class="footer-link">Services</a></li>
+                            <li><a href="#Knowledge" class="footer-link">Snowledge Graph</a></li>
+                            <li><a href="#Contact" class="footer-link">Contact</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Services Section -->
+                    <div class="footer-section">
+                        <h4 class="section-title-footer">services</h4>
+                        <ul class="footer-links">
+                            <li><a href="#" class="footer-link">research</a></li>
+                            <li><a href="#" class="footer-link">summarization</a></li>
+                            <li><a href="#" class="footer-link">educational videos</a></li>
+                            <li><a href="#" class="footer-link">official sources</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Contact Information Section -->
+                    <div class="footer-section contact-section">
+                        <h4 class="section-title-footer">Contact Information</h4>
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <i class="fas fa-envelope contact-icon"></i>
+                                <span class="contact-text">research@spaceres.org</span>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-phone contact-icon"></i>
+                                <span class="contact-text">+1 (555) 123-4567</span>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-map-marker-alt contact-icon"></i>
+                                <span class="contact-text">Houston Space Center, TX</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Back to Top Button -->
+                <div class="back-to-top">
+                    <button class="back-to-top-btn" onclick="scrollToTop()" aria-label="Back to top">
+                        <i class="fas fa-arrow-up"></i>
+                    </button>
+                </div>
+            </footer>
+
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
